@@ -80,14 +80,12 @@ passwd sysmon
 -- Arm
 
 // 개인계정 생성
-mkuser id='2000' pgrp='sysadmin' sugroups='sysadmin'
- gecos='EJPark' 99190
-passwd 99190
+mkuser id='2000' pgrp='sysadmin' sugroups='sysadmin' gecos='kkk' abcdef1
+passwd abcdef1
 
-mkuser id='2001' pgrp='sysadmin' sugroups='sysadmin' gecos='SHChoi' 190678
-mkuser id='2002' pgrp='sysadmin' sugroups='sysadmin' gecos='HYChoi' 190595
- 190595
- 190678
+mkuser id='2001' pgrp='sysadmin' sugroups='sysadmin' gecos='SHChoi' abcdef1
+mkuser id='2002' pgrp='sysadmin' sugroups='sysadmin' gecos='HYChoi' abcdef2
+
  
  vi /etc/security/passwd
  새로 만든 계정의 flags 부분 삭제
@@ -219,8 +217,8 @@ void xntpd() {
 	// 아래 server 추가
 	vi /etc/ntpd.conf 
 	===============
-	server 172.18.1.249
-	server 172.18.1.248
+	server ntpserver1_ipaddr
+	server ntpserver2_ipaddr
 	===============
 		
 }
@@ -229,12 +227,11 @@ void xntpd() {
 void DNS설정() {
 	
 	// resov.conf 생성 후 아래 내용 추가
-	// 외부 DMZ 서버인 경우  210.127.58.200 
-	//, 210.127.58.201 로 설정
+	// 외부 DMZ 서버인 경우 외부 DNS 추가
 	vi /etc/resolv.conf
 	=====================
-	nameserver      172.18.1.249
-	nameserver      172.18.1.248
+	nameserver      dnsserver1_ipaddr
+	nameserver      dnsserver2_ipaddr
 	======================
 	
 }
