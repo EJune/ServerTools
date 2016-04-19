@@ -1,7 +1,7 @@
 // AIX 6.1 or 7.1 초기 세팅  ver 1.0.0 
 // last updated 2016-03-29
 
-// test222
+// test222555
 
 // 최신 패치 TL 설치한다.
 void OS패치() {
