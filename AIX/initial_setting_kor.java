@@ -210,12 +210,12 @@ void xntpd() {
 	vi /etc/rc.tcpip
 	===============
 	# Start up Network Time Protocol (NTP) daemon
-	start /usr/sbin/xntpd -x "$src_running"
+	start /usr/sbin/xntpd "$src_running" "-x"
 	===============
 	
 	
 	// 아래 server 추가
-	vi /etc/ntpd.conf 
+	vi /etc/ntp.conf 
 	===============
 	server ntpserver1_ipaddr
 	server ntpserver2_ipaddr
